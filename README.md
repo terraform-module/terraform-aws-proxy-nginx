@@ -1,6 +1,8 @@
-# Module Blueprint
+# terraform-aws-proxy-sqlserver
 
-Terraform module blueprint
+Terraform AWS SQL Proxy server
+
+[Module Resistry](https://registry.terraform.io/modules/terraform-module/proxy-sqlserver)
 
 ## Usage example
 
