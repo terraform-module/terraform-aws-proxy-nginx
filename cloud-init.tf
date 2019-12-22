@@ -23,7 +23,7 @@ data template_cloudinit_config express {
         sql_server_port = var.sql_server_port
       }))
       html_content = base64gzip(templatefile("${path.module}/templates/index.html", {
-        proxy_name = var.name
+        name = var.name
       }))
     })
   }
