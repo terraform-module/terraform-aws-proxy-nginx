@@ -17,6 +17,34 @@ Here's the gist of using it directly from github.
 ## Module Variables
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| ami | The EC2 image ID to launch. | string | `""` | no |
+| cpu\_credits | The credit option for CPU usage \(unlimited or standard\) | string | `"standart"` | no |
+| docker\_compose\_version | Version of docker-compose to install. | string | `"1.25.0"` | no |
+| expiredate | In hours when access should expire. | string | `"100h"` | no |
+| instance\_count | Number of instances to launch | number | `"1"` | no |
+| instance\_type | The type of instance to start. e.g. 't2.micro' | string | n/a | yes |
+| name | Name to be used on all resources as prefix | string | n/a | yes |
+| nginx\_version | Version of NGINX to deploy. | string | `"1.17.6"` | no |
+| region | AWS Region where to deploy resources to. | string | n/a | yes |
+| security\_group\_ids | A list of security group IDs to associate with | list(string) | `"null"` | no |
+| sql\_server\_fqdn | Sql server fqdn. | string | n/a | yes |
+| sql\_server\_port | User name with home dictory. | number | `"1433"` | no |
+| ssh\_authorized\_key | Add keys to user's authorized keys file. | string | n/a | yes |
+| subnet\_ids | A list of VPC Subnet IDs to launch in. | list(string) | n/a | yes |
+| tags | A mapping of tags to assign to the resource | map(string) | `{}` | no |
+| user\_name | User name with home dictory. | string | `"clouduser"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| id | The ID of the instance |
+| public\_ip | IP addresses assigned to the instance, if applicable |
+| user\_account\_expiration |  |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

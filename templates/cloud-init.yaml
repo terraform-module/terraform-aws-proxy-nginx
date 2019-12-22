@@ -1,0 +1,76 @@
+#cloud-config
+
+repo_update: true
+package_reboot_if_required: true
+
+packages:
+- apt-transport-https
+- ca-certificates
+- software-properties-common
+- jq
+- vim
+- docker-ce
+- docker-ce-cli
+- containerd.io
+
+required_features:
+  - no_file_fmt_e
+
+users:
+  - default
+  - name: ${extra_user}
+    shell: /bin/bash
+    ssh-imported: None
+    sudo: ${sudo}
+    groups: docker, cloud-users
+    lock_passwd: true
+    gecos: ${title(extra_user)} User Account
+    ssh_authorized_keys:
+    - "${public_key}"
+
+locale: en_US.UTF-8
+locale_configfile: /etc/default/locale
+apt:
+  preserve_sources_list: true
+  conf: |
+    APT {
+      Get {
+        Assume-Yes "true";
+        Fix-Broken "true";
+      };
+    };
+  sources:
+    instance-docker-ppa.list:
+      keyid: 0EBFCD88
+      source: "deb [arch=amd64] https://download.docker.com/linux/ubuntu $RELEASE stable"
+
+write_files:
+- path: /opt/bootstrap.sh
+  owner: root:root
+  content: ${bootstrap_content}
+  permissions: '0755'
+  encoding: gz+b64
+- path: /opt/docker-compose.yml
+  content: ${compose_content}
+  owner: root:root
+  permissions: '0444'
+  encoding: gz+b64
+- path: /opt/nginx/nginx.conf
+  owner: root:root
+  content: ${nginx_content}
+  permissions: '0444'
+  encoding: gz+b64
+- path: /opt/html/index.html
+  owner: root:root
+  content: ${html_content}
+  permissions: '0444'
+  encoding: gz+b64
+
+runcmd:
+- find /opt -type f -exec chown ${extra_user}:${extra_user} {} \;
+- /opt/bootstrap.sh
+
+final_message: "THE SYSTEM IS FINALLY UP, AFTER '$UPTIME' SECONDS"
+
+output:
+  all: '| tee -a /var/log/cloud-init-output.log'
