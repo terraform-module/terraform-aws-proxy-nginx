@@ -7,7 +7,19 @@ Terraform module blueprint
 Here's the gist of using it directly from github.
 
 ```hcl
-
+module proxy {
+  source             = "github.com/terraform-module/terraform-aws-proxy-sqlserver?ref=v2.1.0"
+  name               = format("%s-proxy", var.environment)
+  instance_type      = "m3.medium"
+  subnet_ids         = "subnet-2342234"
+  ssh_authorized_key = var.public_key
+  sql_server_fqdn    = "dabase.example.com"
+  region             = "us-west-2"
+  security_group_ids = "sg-asdfasdg"
+  tags = {
+    { Name = format("%s-sql-express-proxy", var.environment) }
+  }
+}
 ```
 
 ## Assumptions
@@ -52,11 +64,11 @@ Here's the gist of using it directly from github.
 
 <!-- START makefile-doc -->
 ```
-$ make help 
+$ make help
 hooks                          Commit hooks setup
 validate                       Validate with pre-commit hooks
 changelog                      Update changelog
-release                        Create release version 
+release                        Create release version
 ```
 <!-- END makefile-doc -->
 
