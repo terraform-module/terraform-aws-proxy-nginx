@@ -8,7 +8,8 @@ Here's the gist of using it directly from github.
 
 ```hcl
 module proxy {
-  source             = "github.com/terraform-module/terraform-aws-proxy-sqlserver?ref=v2.1.0"
+  source             = "terraform-module/proxy-sqlserver/aws"
+  version            = "2.3.0"
   name               = format("%s-proxy", var.environment)
   instance_type      = "m3.medium"
   subnet_ids         = "subnet-2342234"
