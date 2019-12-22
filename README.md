@@ -13,7 +13,7 @@ module proxy {
   name               = format("%s-proxy", var.environment)
   instance_type      = "m3.medium"
   subnet_ids         = "subnet-2342234"
-  ssh_authorized_key = var.public_key
+  ssh_authorized_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAGEA3FSyQwBI6Z+nCSjUUk8EEAnnkhXlukKoUPND/RRClWz2s5TCzIkd3Ou5+Cyz71X0XmazM3l5WgeErvtIwQMyT1KjNoMhoJMrJnWqQPOt5Q8zWd9qG7PBl9+eiH5qV7NZ mykey@host"
   sql_server_fqdn    = "dabase.example.com"
   region             = "us-west-2"
   security_group_ids = "sg-asdfasdg"
