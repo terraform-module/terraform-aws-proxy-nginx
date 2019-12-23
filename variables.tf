@@ -87,3 +87,9 @@ variable "sql_server_port" {
   description = "User name with home dictory."
   default     = 1433
 }
+
+variable "connection_timeout" {
+  type        = number
+  description = "Database connection timeout."
+  default     = 10
+}

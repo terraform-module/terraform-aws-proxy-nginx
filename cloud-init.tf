@@ -21,6 +21,7 @@ data template_cloudinit_config express {
       nginx_content = base64gzip(templatefile("${path.module}/templates/nginx.conf", {
         sql_server_fqdn = var.sql_server_fqdn
         sql_server_port = var.sql_server_port
+        timeout         = var.connection_timout
       }))
       html_content = base64gzip(templatefile("${path.module}/templates/index.html", {
         name = var.name

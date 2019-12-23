@@ -37,6 +37,7 @@ module proxy {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | ami | The EC2 image ID to launch. | string | `""` | no |
+| connection\_timeout | Database connection timeout. | number | `"10"` | no |
 | cpu\_credits | The credit option for CPU usage \(unlimited or standard\) | string | `"standart"` | no |
 | docker\_compose\_version | Version of docker-compose to install. | string | `"1.25.0"` | no |
 | expiredate | In hours when access should expire. | string | `"100h"` | no |
