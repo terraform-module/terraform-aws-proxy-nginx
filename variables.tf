@@ -88,6 +88,11 @@ variable "sql_server_port" {
   default     = 1433
 }
 
+variable "documentdb_fqdn" {
+  type        = string
+  description = "Document DB server fqdn."
+}
+
 variable "connection_timeout" {
   type        = number
   description = "Database connection timeout."
