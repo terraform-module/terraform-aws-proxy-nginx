@@ -23,5 +23,6 @@ resource "aws_instance" "server" {
     ]
   }
 
-  tags = merge({ Name = var.name }, var.tags)
+  tags        = merge({ Name = var.name }, var.tags)
+  volume_tags = merge({ Name = var.name }, var.tags)
 }
