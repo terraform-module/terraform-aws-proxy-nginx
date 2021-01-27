@@ -5,7 +5,6 @@ resource "aws_instance" "server" {
   vpc_security_group_ids      = var.security_group_ids
   associate_public_ip_address = true
   user_data_base64            = data.template_cloudinit_config.express.rendered
-  cpu_credits                 = var.cpu_credits
 
   credit_specification {
     cpu_credits = var.cpu_credits

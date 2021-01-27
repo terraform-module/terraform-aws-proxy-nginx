@@ -8,6 +8,11 @@ output "public_dns" {
   value       = aws_instance.server.public_dns
 }
 
+output "id" {
+  description = "The ID of the instance"
+  value       = aws_instance.server.id
+}
+
 output "user_account_expiration" {
   value = local.user_account_expiration
 }
