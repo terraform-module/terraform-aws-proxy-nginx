@@ -1,9 +1,5 @@
-module this {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 2.16.0"
-
+resource "aws_instance" "server" {
   ami                         = coalesce(var.ami, local.ami)
-  instance_count              = var.instance_count
   name                        = var.name
   instance_type               = var.instance_type
   subnet_ids                  = var.subnet_ids
