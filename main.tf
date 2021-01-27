@@ -16,7 +16,7 @@ resource "aws_instance" "server" {
       encrypted             = true
     },
   ]
-  
+
   lifecycle {
     ignore_changes = [
       user_data_base64
