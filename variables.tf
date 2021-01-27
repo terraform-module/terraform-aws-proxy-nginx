@@ -45,7 +45,7 @@ variable "security_group_ids" {
 variable "cpu_credits" {
   type        = string
   description = "The credit option for CPU usage (unlimited or standard)"
-  default     = "standart"
+  default     = "standard"
 }
 
 variable "ssh_authorized_key" {
