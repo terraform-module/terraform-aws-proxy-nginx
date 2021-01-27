@@ -1,6 +1,6 @@
 module this {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 2.12.0"
+  version = "~> 2.16.0"
 
   ami                         = coalesce(var.ami, local.ami)
   instance_count              = var.instance_count
