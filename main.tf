@@ -20,6 +20,12 @@ module this {
       encrypted             = true
     },
   ]
+  
+  lifecycle {
+    ignore_changes = [
+      
+    ]
+  }
 
   tags = var.tags
 }
