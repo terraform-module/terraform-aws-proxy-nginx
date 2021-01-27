@@ -23,7 +23,7 @@ module this {
   
   lifecycle {
     ignore_changes = [
-      
+      user_data_base64
     ]
   }
 
