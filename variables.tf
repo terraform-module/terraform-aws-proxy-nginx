@@ -98,3 +98,14 @@ variable "connection_timeout" {
   description = "Database connection timeout."
   default     = 10
 }
+
+variable "mysql_server_fqdn" {
+  type        = string
+  description = "MySQL server host"
+}
+
+variable "mysql_server_port" {
+  type        = number
+  description = "MySQL port"
+  default     = 3306
+}
