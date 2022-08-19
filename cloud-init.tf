@@ -1,4 +1,4 @@
-data template_cloudinit_config express {
+data "cloudinit_config" "express" {
   gzip          = true
   base64_encode = true
 
