@@ -1,4 +1,4 @@
-data template_cloudinit_config express {
+data "cloudinit_config" "express" {
   gzip          = true
   base64_encode = true
 
@@ -19,9 +19,12 @@ data template_cloudinit_config express {
         nginx_version = var.nginx_version
       }))
       nginx_content = base64gzip(templatefile("${path.module}/templates/nginx.conf", {
-        sql_server_fqdn = var.sql_server_fqdn
-        sql_server_port = var.sql_server_port
-        timeout         = var.connection_timeout
+        sql_server_fqdn   = var.sql_server_fqdn
+        sql_server_port   = var.sql_server_port
+        documentdb_fqdn   = var.documentdb_fqdn
+        mysql_server_fqdn = var.mysql_server_fqdn
+        mysql_server_port = var.mysql_server_port
+        timeout           = var.connection_timeout
       }))
       html_content = base64gzip(templatefile("${path.module}/templates/index.html", {
         name = var.name

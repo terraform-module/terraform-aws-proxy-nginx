@@ -45,7 +45,7 @@ variable "security_group_ids" {
 variable "cpu_credits" {
   type        = string
   description = "The credit option for CPU usage (unlimited or standard)"
-  default     = "standart"
+  default     = "standard"
 }
 
 variable "ssh_authorized_key" {
@@ -88,8 +88,24 @@ variable "sql_server_port" {
   default     = 1433
 }
 
+variable "documentdb_fqdn" {
+  type        = string
+  description = "Document DB server fqdn."
+}
+
 variable "connection_timeout" {
   type        = number
   description = "Database connection timeout."
   default     = 10
+}
+
+variable "mysql_server_fqdn" {
+  type        = string
+  description = "MySQL server host"
+}
+
+variable "mysql_server_port" {
+  type        = number
+  description = "MySQL port"
+  default     = 3306
 }

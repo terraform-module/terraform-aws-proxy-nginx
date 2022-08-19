@@ -7,5 +7,7 @@ services:
     - /opt/nginx/:/etc/nginx/
     - /opt/html/:/etc/html/
     ports:
-    - 1433:1433
+    - 5432:5432
     - 80:80
+    - 27017:27017
+    - 3306:3006
